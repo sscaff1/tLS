@@ -1,0 +1,26 @@
+<head>
+	<title>Template-Level Subscriptions</title>
+</head>
+<body>
+	<div class="posts">
+		{{> posts}}
+	</div>
+</body>
+
+<template name="posts">
+	{{#each posts}}
+	  	<div class="posts">
+			<h3>{{title}}</h3>  
+			<p>{{body}}</p>
+		</div>
+	{{/each}}
+	{{#if Template.subscriptionsReady}}
+		{{#if hasMorePosts}}
+			<a class="load-more" href="#">Load More</a>
+		{{/if}}
+	{{else}}
+		<div class="loading">
+			<p>{{> spinner}}</p>
+		</div>
+	{{/if}}
+</template>
